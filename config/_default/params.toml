@@ -1,0 +1,17 @@
+colorScheme = "forest"
+defaultAppearance = "dark"
+enableCodeCopy = "true"
+
+[footer]
+showThemeAttribution = "false"
+
+[article]
+showTableOfContents = "true"
+showHero = "true"
+heroStyle = "basic"
+showWordCount = false
+showTaxonomies = true
+
+[list]
+cardView = true
+groupByYear = false

@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
-    <lastmod>2025-05-25T18:04:28+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-25T18:04:28+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-05-25T18:04:28+05:30</lastmod>
-  </url>
-</urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>http://localhost:1313/</loc><lastmod>2025-05-25T18:19:05+05:30</lastmod></url><url><loc>http://localhost:1313/docs/</loc><lastmod>2025-05-25T18:19:05+05:30</lastmod></url><url><loc>http://localhost:1313/docs/event-information/</loc><lastmod>2025-05-25T18:19:05+05:30</lastmod></url><url><loc>http://localhost:1313/docs/auth-setup/</loc><lastmod>2025-05-25T18:19:05+05:30</lastmod></url></urlset>
