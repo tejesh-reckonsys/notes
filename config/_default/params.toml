@@ -1,6 +1,13 @@
 colorScheme = "forest"
 defaultAppearance = "dark"
 enableCodeCopy = "true"
+mainSections = ["docs", "personal"]
+smartTOC = true
+
+[author]
+name = "Tejesh Kaliki"
+headline = "Problem solving is the base of all programming"
+image = "img/profile.jpeg"
 
 [footer]
 showThemeAttribution = "false"
@@ -11,7 +18,14 @@ showHero = "true"
 heroStyle = "basic"
 showWordCount = false
 showTaxonomies = true
+showBreadcrumbs = true
 
 [list]
 cardView = true
 groupByYear = false
+showBreadcrumbs = true
+
+[homepage]
+layout = "profile"
+showRecent = true
+cardView = true

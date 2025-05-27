@@ -1,0 +1,33 @@
+.alert {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+}
+
+.alert-important {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+  border-color: rgb(var(--color-primary-500));
+}
+
+.alert-note {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+  border-color: rgb(var(--color-neutral-400));
+}
+
+.alert-tip {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+  border-color: rgb(var(--color-secondary-500));
+}
+
+.alert-warning {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+  border-color: rgb(var(--color-primary-400));
+}
+
+.alert-caution {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+  border-color: rgb(var(--color-secondary-400));
+}
+
+.alert-danger {
+  @apply p-4 my-6 rounded border-l-4 text-sm;
+  border-color: rgb(var(--color-secondary-600));
+}

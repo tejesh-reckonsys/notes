@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://tejesh-reckonsys.github.io/notes'
 languageCode = 'en-us'
-title = 'Create Session Docs'
+title = 'Tejesh Reckonsys Notes'
 theme = 'blowfish'
