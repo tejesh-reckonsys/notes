@@ -1,125 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Create Session Docs</title><link>http://localhost:1313/docs/</link><description>Recent content in Docs on Create Session Docs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025</copyright><lastBuildDate>Sun, 25 May 2025 18:19:05 +0530</lastBuildDate><atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Interactions Data</title><link>http://localhost:1313/docs/event-information/</link><pubDate>Sun, 25 May 2025 18:19:05 +0530</pubDate><guid>http://localhost:1313/docs/event-information/</guid><description>&lt;h2 class="relative group">Interactions &amp;amp; Event Data
-&lt;div id="interactions--event-data" class="anchor">&lt;/div>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/docs/</link><description>Recent content in Docs on Tejesh Reckonsys Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025 Tejesh Kaliki</copyright><lastBuildDate>Thu, 15 May 2025 15:24:19 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Visualizing Langgraph graphs</title><link>http://localhost:1313/notes/docs/visualizing-langgraph-graphs/</link><pubDate>Thu, 15 May 2025 15:24:19 +0530</pubDate><guid>http://localhost:1313/notes/docs/visualizing-langgraph-graphs/</guid><description>&lt;p>This explains how to use StateGraph in langgraph with Mermaid for visualizing the graph.&lt;/p>
+&lt;h3 class="relative group">Summary of the steps
+&lt;div id="summary-of-the-steps" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#interactions--event-data" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#summary-of-the-steps" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ol>
+&lt;li>Create StateGraph using &lt;code>langgraph.graph.StateGraph&lt;/code> and compile using &lt;code>app=graph.compile()&lt;/code>.&lt;/li>
+&lt;li>Print mermaid code using &lt;code>app.get_graph().draw_mermaid()&lt;/code>.&lt;/li>
+&lt;li>Paste the printed mermaid code as markdown block, or in &lt;a href="https://www.mermaidchart.com/play" target="_blank">Mermaid Playground&lt;/a> to visualize.&lt;/li>
+&lt;/ol>
+&lt;h2 class="relative group">Step 1: Create a StateGraph
+&lt;div id="step-1-create-a-stategraph" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#step-1-create-a-stategraph" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h2>
-&lt;div class="mermaid-wrapper">
-&lt;div class="mermaid">erDiagram
-EventUser {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-String name &amp;#34;nullable&amp;#34;
-String email &amp;#34;nullable&amp;#34;
-Boolean is_anonymous
-UUID user_id &amp;#34;nullable&amp;#34;
-}
-EventUserRole {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-UUID event_user_id FK
-UUID event_id FK
-ENUM role &amp;#34;organizer, participant, moderator&amp;#34;
-}
-Event {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-String name
-DateTime start_date
-DateTime end_date
-String code &amp;#34;unique&amp;#34;
-String url &amp;#34;unique&amp;#34;
-UUID created_by FK
-}
-Interaction {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-Boolean is_active
-Boolean is_res_public
-Boolean is_poll_open
-String link &amp;#34;nullable&amp;#34;
-Boolean allow_multiple
-UUID event_id FK
-}
-InteractionContent {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-UUID interaction_id FK
-ENUM content_type
-String title &amp;#34;nullable&amp;#34;
-String description &amp;#34;nullable&amp;#34;
-JSON config &amp;#34;nullable&amp;#34;
-}
-Question {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-UUID interaction_content_id FK
-String question
-}
-Option {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-UUID question_id FK
-String text
-}
-UserVote {
-UUID id PK
-DateTime created_at
-DateTime updated_at
-UUID event_user_id FK
-UUID interaction_id FK
-UUID option_id FK
-}
-Interaction ||--o| InteractionContent : &amp;#34;has content&amp;#34;
-Event ||--|{ EventUserRole : &amp;#34;includes&amp;#34;
-EventUserRole }|--|| EventUser : &amp;#34;has role&amp;#34;
-Event ||--o{ Interaction: &amp;#34;has interaction&amp;#34;
-InteractionContent ||--o{ Question : &amp;#34;contains&amp;#34;
-UserVote }o--|| Option : &amp;#34;selects&amp;#34;
-Question ||--o{ Option : &amp;#34;has&amp;#34;
-EventUser ||--o{ UserVote : &amp;#34;casts&amp;#34;
-Interaction ||--o{ UserVote : &amp;#34;records in&amp;#34;&lt;/div>
-&lt;/div></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/event-information/feature.png"/></item><item><title>OTP Authentication</title><link>http://localhost:1313/docs/auth-setup/</link><pubDate>Sun, 25 May 2025 18:19:05 +0530</pubDate><guid>http://localhost:1313/docs/auth-setup/</guid><description>&lt;h1 class="relative group">User Authentication System with OTP Verification
-&lt;div id="user-authentication-system-with-otp-verification" class="anchor">&lt;/div>
+&lt;p>Create a StateGraph and add necessary nodes and edges. Following is an example graph:&lt;/p></description></item><item><title>DB Optimizations</title><link>http://localhost:1313/notes/docs/db-optimizations/</link><pubDate>Mon, 03 Feb 2025 18:09:43 +0530</pubDate><guid>http://localhost:1313/notes/docs/db-optimizations/</guid><description>&lt;h1 class="relative group">Django ORM basics
+&lt;div id="django-orm-basics" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#user-authentication-system-with-otp-verification" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#django-orm-basics" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
-&lt;p>This document provides UML diagrams for the signup and login processes of our user authentication system, which includes OTP verification via email.&lt;/p>
-&lt;h2 class="relative group">Complete Authentication Flow State Diagram
-&lt;div id="complete-authentication-flow-state-diagram" class="anchor">&lt;/div>
+&lt;p>ORM stands for &amp;ldquo;Object Relational Mapping,&amp;rdquo; which means that it maps from tables in relational database to objects. This makes it easier to access the information from database, but at the same time makes it oblivious how it communicates with database internally. This leads to un-optimized database communications.&lt;/p>
+&lt;p>This section explains some common methods used in Django ORM, and how they communicate with database.&lt;/p></description></item><item><title>Code Pipeline Setup</title><link>http://localhost:1313/notes/docs/code-pipeline-setup/</link><pubDate>Mon, 03 Feb 2025 17:58:23 +0530</pubDate><guid>http://localhost:1313/notes/docs/code-pipeline-setup/</guid><description>&lt;h1 class="relative group">Setting up auto deployment
+&lt;div id="setting-up-auto-deployment" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#complete-authentication-flow-state-diagram" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#setting-up-auto-deployment" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>These are the sequence of actions to setup the auto deployment:&lt;/p>
+&lt;h2 class="relative group">Step 1: Create an ECR repository
+&lt;div id="step-1-create-an-ecr-repository" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#step-1-create-an-ecr-repository" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h2>
-&lt;div class="mermaid-wrapper">
-&lt;div class="mermaid">stateDiagram-v2
-[*] --&amp;gt; LandingPage
-LandingPage --&amp;gt; SignupProcess: Choose Signup
-LandingPage --&amp;gt; LoginProcess: Choose Login
-LandingPage --&amp;gt; PasswordResetProcess: Forgot Password
-%% Main Authentication Flows
-SignupProcess --&amp;gt; OTPVerificationFlow: After registration
-LoginProcess --&amp;gt; AuthenticatedState: Successful login (verified user)
-LoginProcess --&amp;gt; OTPVerificationFlow: Successful login (unverified user)
-PasswordResetProcess --&amp;gt; LoginProcess: After password reset
-%% OTP Verification Flow
-OTPVerificationFlow --&amp;gt; LoginProcess: Successful verification
-OTPVerificationFlow --&amp;gt; OTPVerificationFlow: Request new OTP
-%% Final states
-AuthenticatedState --&amp;gt; [*]: Logout&lt;/div>
-&lt;/div>
-&lt;p>This state diagram represents the complete authentication flow, including signup, OTP verification, login, resend OTP, and password reset processes. It shows how these processes are interconnected and the various paths a user might take depending on different conditions and actions.&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/auth-setup/feature.png"/></item></channel></rss>
+&lt;ul>
+&lt;li>
+&lt;p>Navigate to ECR in AWS, and create a new repository for main images.
+![[Pasted image 20250527200926.png]]&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Also set a lifecycle policy to delete old images, ideally keeping the last 5 images.&lt;/p></description></item></channel></rss>
