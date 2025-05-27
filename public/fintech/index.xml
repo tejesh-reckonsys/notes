@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Finteches on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/fintech/</link><description>Recent content in Finteches on Tejesh Reckonsys Notes</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 04 Mar 2025 18:58:53 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/fintech/index.xml" rel="self" type="application/rss+xml"/><item><title>Working questions</title><link>http://localhost:1313/notes/fintech/working-questions/</link><pubDate>Tue, 04 Mar 2025 18:58:53 +0530</pubDate><guid>http://localhost:1313/notes/fintech/working-questions/</guid><description>&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Finteches on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/fintech/</link><description>Recent content in Finteches on Tejesh Reckonsys Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025 Tejesh Kaliki</copyright><lastBuildDate>Tue, 04 Mar 2025 18:58:53 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/fintech/index.xml" rel="self" type="application/rss+xml"/><item><title>Working questions</title><link>http://localhost:1313/notes/fintech/working-questions/</link><pubDate>Tue, 04 Mar 2025 18:58:53 +0530</pubDate><guid>http://localhost:1313/notes/fintech/working-questions/</guid><description>&lt;ol>
 &lt;li>What are the key drivers of net profit margin changes over time? &lt;/li>
 &lt;li>How does the company’s free cash flow compare to its net income?  Can you give the percentage?&lt;/li>
 &lt;li>What are the trends in the company’s return on equity (ROE)? &lt;/li>
 &lt;li>What are the trends in the company’s market capitalization over the past five years? &lt;/li>
 &lt;li>What is the trend in operating expenses as a percentage of revenue?&lt;/li>
 &lt;/ol></description></item><item><title>Fintech AI Approach</title><link>http://localhost:1313/notes/fintech/fintech-ai-approach/</link><pubDate>Fri, 14 Feb 2025 14:57:15 +0530</pubDate><guid>http://localhost:1313/notes/fintech/fintech-ai-approach/</guid><description>&lt;div class="mermaid-wrapper">
- &lt;div class="mermaid">flowchart
-
+&lt;div class="mermaid">flowchart
 A(User Query) --&amp;gt; B(Call AI with Columns data)
 B --&amp;gt;|Enough data| X(Generate response)
 B --&amp;gt;|Not enough data| C(call function for more data)
@@ -14,24 +13,51 @@ C --&amp;gt; B
 X --&amp;gt;|Table response| Y(Generate SQL for duckdb and send table)
 X --&amp;gt;|Calculation response| Z(Calculate response and send formula &amp;amp; calculation)&lt;/div>
 &lt;/div>
-
-&lt;h4 id="things-missing-in-poc">Things missing in PoC:&lt;/h4>
+&lt;h4 class="relative group">Things missing in PoC:
+&lt;div id="things-missing-in-poc" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#things-missing-in-poc" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
 &lt;ul>
 &lt;li>&lt;em>&lt;strong>Comparing peers data.&lt;/strong>&lt;/em> Can implement by adding a function for getting peers data&lt;/li>
 &lt;li>&lt;em>&lt;strong>Returning charts/graphs:&lt;/strong>&lt;/em> Currently only returning tables or text. Can inegrate other output formats by giving context to AI.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>NOTE:&lt;/strong>&lt;/p></description></item><item><title>Feature Description</title><link>http://localhost:1313/notes/fintech/feature-description/</link><pubDate>Tue, 11 Feb 2025 12:19:18 +0530</pubDate><guid>http://localhost:1313/notes/fintech/feature-description/</guid><description>&lt;h3 id="questions">Questions:&lt;/h3>
+&lt;p>&lt;strong>NOTE:&lt;/strong>&lt;/p></description></item><item><title>Feature Description</title><link>http://localhost:1313/notes/fintech/feature-description/</link><pubDate>Tue, 11 Feb 2025 12:19:18 +0530</pubDate><guid>http://localhost:1313/notes/fintech/feature-description/</guid><description>&lt;h3 class="relative group">Questions:
+&lt;div id="questions" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#questions" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
 &lt;ol>
 &lt;li>Is this conversation based? That is, can the user ask follow up questions?&lt;/li>
 &lt;li>In some questions, they mentioned &lt;code>peer data&lt;/code>. Is this also present in the company dataset? Otherwise how do we fetch this data?&lt;/li>
 &lt;/ol>
-&lt;h3 id="data-needed">Data needed:&lt;/h3>
+&lt;h3 class="relative group">Data needed:
+&lt;div id="data-needed" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#data-needed" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
 &lt;ol>
 &lt;li>Fields present in master data&lt;/li>
 &lt;li>Widgets already present and their use-case&lt;/li>
 &lt;li>Common finance related terms (Not sure if AI can directly understand them)&lt;/li>
 &lt;/ol>
-&lt;h3 id="approach">Approach:&lt;/h3>
+&lt;h3 class="relative group">Approach:
+&lt;div id="approach" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#approach" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
 &lt;ul>
 &lt;li>Create a base prompt that contains the details about the platform, such as available fields and widgets.&lt;/li>
 &lt;li>Pass the user query to the LLM.
@@ -48,7 +74,14 @@ X --&amp;gt;|Calculation response| Z(Calculate response and send formula &amp;am
 &lt;/ol>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="types-of-questions-using-examples">Types of questions (Using examples)&lt;/h3>
+&lt;h3 class="relative group">Types of questions (Using examples)
+&lt;div id="types-of-questions-using-examples" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#types-of-questions-using-examples" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
 &lt;ol>
 &lt;li>Trend analysis: Comparing periodic changes in a specific field. &lt;strong>Output:&lt;/strong> Graph/chart showing the change in data over time.&lt;/li>
 &lt;li>Relationship analysis: Comparing relationship between 2 or more fields in the data. &lt;strong>Output:&lt;/strong> Graph showing the different fields for user to compare.&lt;/li>
