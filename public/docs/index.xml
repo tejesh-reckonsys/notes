@@ -1,55 +1,122 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/docs/</link><description>Recent content in Docs on Tejesh Reckonsys Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025 Tejesh Kaliki</copyright><lastBuildDate>Thu, 15 May 2025 15:24:19 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Visualizing Langgraph graphs</title><link>http://localhost:1313/notes/docs/visualizing-langgraph-graphs/</link><pubDate>Thu, 15 May 2025 15:24:19 +0530</pubDate><guid>http://localhost:1313/notes/docs/visualizing-langgraph-graphs/</guid><description>&lt;p>This explains how to use StateGraph in langgraph with Mermaid for visualizing the graph.&lt;/p>
-&lt;h3 class="relative group">Summary of the steps
-&lt;div id="summary-of-the-steps" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#summary-of-the-steps" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/docs/</link><description>Recent content in Docs on Tejesh Reckonsys Notes</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 15 May 2025 15:24:19 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Visualizing Langgraph graphs</title><link>http://localhost:1313/notes/docs/visualizing-langgraph-graphs/</link><pubDate>Thu, 15 May 2025 15:24:19 +0530</pubDate><guid>http://localhost:1313/notes/docs/visualizing-langgraph-graphs/</guid><description>&lt;p>This explains how to use StateGraph in langgraph with Mermaid for visualizing the graph.&lt;/p>
+&lt;h3 id="summary-of-the-steps">Summary of the steps&lt;/h3>
 &lt;ol>
 &lt;li>Create StateGraph using &lt;code>langgraph.graph.StateGraph&lt;/code> and compile using &lt;code>app=graph.compile()&lt;/code>.&lt;/li>
 &lt;li>Print mermaid code using &lt;code>app.get_graph().draw_mermaid()&lt;/code>.&lt;/li>
-&lt;li>Paste the printed mermaid code as markdown block, or in &lt;a href="https://www.mermaidchart.com/play" target="_blank">Mermaid Playground&lt;/a> to visualize.&lt;/li>
+&lt;li>Paste the printed mermaid code as markdown block, or in &lt;a href="https://www.mermaidchart.com/play">Mermaid Playground&lt;/a> to visualize.&lt;/li>
 &lt;/ol>
-&lt;h2 class="relative group">Step 1: Create a StateGraph
-&lt;div id="step-1-create-a-stategraph" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#step-1-create-a-stategraph" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;p>Create a StateGraph and add necessary nodes and edges. Following is an example graph:&lt;/p></description></item><item><title>DB Optimizations</title><link>http://localhost:1313/notes/docs/db-optimizations/</link><pubDate>Mon, 03 Feb 2025 18:09:43 +0530</pubDate><guid>http://localhost:1313/notes/docs/db-optimizations/</guid><description>&lt;h1 class="relative group">Django ORM basics
-&lt;div id="django-orm-basics" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#django-orm-basics" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
+&lt;h2 id="step-1-create-a-stategraph">Step 1: Create a StateGraph&lt;/h2>
+&lt;p>Create a StateGraph and add necessary nodes and edges. Following is an example graph:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> langgraph.graph &lt;span style="color:#f92672">import&lt;/span> StateGraph, END
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Declare state and nodes&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 1. Create the StateGraph&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph &lt;span style="color:#f92672">=&lt;/span> StateGraph(DataProcessingState)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 2. Add Nodes (10 nodes)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;fetch_data&amp;#34;&lt;/span>, fetch_initial_data_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;clean_data&amp;#34;&lt;/span>, clean_data_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;validate_schema&amp;#34;&lt;/span>, validate_schema_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;enrich_data&amp;#34;&lt;/span>, enrich_data_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;check_quality&amp;#34;&lt;/span>, check_quality_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;route_by_type&amp;#34;&lt;/span>, route_by_type_node) &lt;span style="color:#75715e"># Node to prepare for type routing&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;process_type_A&amp;#34;&lt;/span>, process_type_A_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;process_type_B&amp;#34;&lt;/span>, process_type_B_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;aggregate_results&amp;#34;&lt;/span>, aggregate_results_node)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_node(&lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>, handle_error_node) &lt;span style="color:#75715e"># Error handling node&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 3. Add Edges (including branches)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;fetch_data&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;clean_data&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;clean_data&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;validate_schema&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Branch 1: After schema validation&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_conditional_edges(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;validate_schema&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> route_after_validation, &lt;span style="color:#75715e"># Use the conditional function&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;enrich_data&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;enrich_data&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;check_quality&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;check_quality&amp;#34;&lt;/span>, &lt;span style="color:#75715e"># Direct path if no enrichment needed&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Edge after enrichment (if taken)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;enrich_data&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;check_quality&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Branch 2: After quality check&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_conditional_edges(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;check_quality&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> route_after_quality_check, &lt;span style="color:#75715e"># Use the conditional function&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;route_by_type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;route_by_type&amp;#34;&lt;/span>, &lt;span style="color:#75715e"># If quality is good, go to type routing prep node&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>, &lt;span style="color:#75715e"># If quality is bad, go to error handling&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Branch 3: After route_by_type prep node (actual routing based on data_type state key)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_conditional_edges(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;route_by_type&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">lambda&lt;/span> state: state[&lt;span style="color:#e6db74">&amp;#34;data_type&amp;#34;&lt;/span>], &lt;span style="color:#75715e"># Direct lambda reading state key&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;type_a&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;process_type_A&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;type_b&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;process_type_B&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;unknown&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>, &lt;span style="color:#75715e"># Handle case where type couldn&amp;#39;t be determined&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Edges merging back or going to END&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;process_type_A&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;aggregate_results&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;process_type_B&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;aggregate_results&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Paths leading to the end of the graph&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;aggregate_results&amp;#34;&lt;/span>, END)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>add_edge(&lt;span style="color:#e6db74">&amp;#34;handle_error&amp;#34;&lt;/span>, END)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 4. Set the Entry Point&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>graph&lt;span style="color:#f92672">.&lt;/span>set_entry_point(&lt;span style="color:#e6db74">&amp;#34;fetch_data&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Note: END is the implicit finish point(s) here. You could also set a specific finish point&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># if you had a final &amp;#34;Report Success&amp;#34; node before END, for example.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 5. Compile the Graph&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app &lt;span style="color:#f92672">=&lt;/span> graph&lt;span style="color:#f92672">.&lt;/span>compile()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-2-print-the-mermaid-code-stategraph">Step 2: Print the mermaid code StateGraph&lt;/h2>
+&lt;p>Langgraph provides a method on StateGraph to print the mermaid block, which we will use.&lt;/p></description></item><item><title>DB Optimizations</title><link>http://localhost:1313/notes/docs/db-optimizations/</link><pubDate>Mon, 03 Feb 2025 18:09:43 +0530</pubDate><guid>http://localhost:1313/notes/docs/db-optimizations/</guid><description>&lt;h1 id="django-orm-basics">Django ORM basics&lt;/h1>
 &lt;p>ORM stands for &amp;ldquo;Object Relational Mapping,&amp;rdquo; which means that it maps from tables in relational database to objects. This makes it easier to access the information from database, but at the same time makes it oblivious how it communicates with database internally. This leads to un-optimized database communications.&lt;/p>
-&lt;p>This section explains some common methods used in Django ORM, and how they communicate with database.&lt;/p></description></item><item><title>Code Pipeline Setup</title><link>http://localhost:1313/notes/docs/code-pipeline-setup/</link><pubDate>Mon, 03 Feb 2025 17:58:23 +0530</pubDate><guid>http://localhost:1313/notes/docs/code-pipeline-setup/</guid><description>&lt;h1 class="relative group">Setting up auto deployment
-&lt;div id="setting-up-auto-deployment" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#setting-up-auto-deployment" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
+&lt;p>This section explains some common methods used in Django ORM, and how they communicate with database.&lt;/p>
+&lt;p>There are mainly 2 sections/categories of methods:&lt;/p></description></item><item><title>Code Pipeline Setup</title><link>http://localhost:1313/notes/docs/code-pipeline-setup/</link><pubDate>Mon, 03 Feb 2025 17:58:23 +0530</pubDate><guid>http://localhost:1313/notes/docs/code-pipeline-setup/</guid><description>&lt;h1 id="setting-up-auto-deployment">Setting up auto deployment&lt;/h1>
 &lt;p>These are the sequence of actions to setup the auto deployment:&lt;/p>
-&lt;h2 class="relative group">Step 1: Create an ECR repository
-&lt;div id="step-1-create-an-ecr-repository" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#step-1-create-an-ecr-repository" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="step-1-create-an-ecr-repository">Step 1: Create an ECR repository&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>Navigate to ECR in AWS, and create a new repository for main images.
 ![[Pasted image 20250527200926.png]]&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Also set a lifecycle policy to delete old images, ideally keeping the last 5 images.&lt;/p></description></item></channel></rss>
+&lt;p>Also set a lifecycle policy to delete old images, ideally keeping the last 5 images.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="step-2-create-codebuild-project">Step 2: Create CodeBuild project&lt;/h2>
+&lt;ul>
+&lt;li>Create a CodeBuild project, go to &lt;code>CodeBuild &amp;gt; Build Projects &amp;gt; Create build project&lt;/code> and use following configuration:&lt;/li>
+&lt;/ul>
+&lt;h3 id="source-section">Source section&lt;/h3>
+&lt;ul>
+&lt;li>Connect GitHub in AWS and select the relevant repository.
+![[Pasted image 20250527201059.png]]&lt;/li>
+&lt;/ul>
+&lt;h3 id="environment-section">Environment section&lt;/h3>
+&lt;ul>
+&lt;li>In the environment section, select an on-demand, managed, EC2 instance with Ubuntu and &lt;code>aws/codebuild/standard:7.0&lt;/code> image.&lt;/li>
+&lt;/ul>
+
+
+
+ &lt;blockquote class="alert alert-note">
+ &lt;p class="alert-heading">
+ ℹ️
+ 
+ Note
+ 
+ &lt;/p></description></item></channel></rss>

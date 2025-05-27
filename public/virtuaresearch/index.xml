@@ -1,15 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Virtuaresearches on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/virtuaresearch/</link><description>Recent content in Virtuaresearches on Tejesh Reckonsys Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025 Tejesh Kaliki</copyright><lastBuildDate>Fri, 09 May 2025 16:18:36 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/virtuaresearch/index.xml" rel="self" type="application/rss+xml"/><item><title>Finquery API Documentation</title><link>http://localhost:1313/notes/virtuaresearch/finquery-api-documentation/</link><pubDate>Fri, 09 May 2025 16:18:36 +0530</pubDate><guid>http://localhost:1313/notes/virtuaresearch/finquery-api-documentation/</guid><description>&lt;p>Base URLs:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Virtuaresearches on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/virtuaresearch/</link><description>Recent content in Virtuaresearches on Tejesh Reckonsys Notes</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 09 May 2025 16:18:36 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/virtuaresearch/index.xml" rel="self" type="application/rss+xml"/><item><title>Finquery API Documentation</title><link>http://localhost:1313/notes/virtuaresearch/finquery-api-documentation/</link><pubDate>Fri, 09 May 2025 16:18:36 +0530</pubDate><guid>http://localhost:1313/notes/virtuaresearch/finquery-api-documentation/</guid><description>&lt;p>Base URLs:&lt;/p>
 &lt;ul>
 &lt;li>&lt;!-- raw HTML omitted -->Develop Env: http://localhost:8000&lt;!-- raw HTML omitted -->&lt;/li>
 &lt;/ul>
-&lt;h1 class="relative group">Authentication
-&lt;div id="authentication" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#authentication" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
+&lt;h1 id="authentication">Authentication&lt;/h1>
 &lt;ul>
 &lt;li>API Key (apikey-header-X-Secret-Key)
 &lt;ul>
@@ -18,16 +11,42 @@ style="text-decoration-line: none !important;" href="#authentication" aria-label
 &lt;/li>
 &lt;/ul>
 &lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;h2 class="relative group">POST Reports Webhook
-&lt;div id="post-reports-webhook" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#post-reports-webhook" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="post-reports-webhook">POST Reports Webhook&lt;/h2>
 &lt;p>POST /dataset/reports-webhook/{client_id}&lt;/p>
-&lt;p>Webhook to call when the reports of a specific client are updated&lt;/p></description></item><item><title>Change list (17-04)</title><link>http://localhost:1313/notes/virtuaresearch/change-list-17-04/</link><pubDate>Thu, 17 Apr 2025 14:36:51 +0530</pubDate><guid>http://localhost:1313/notes/virtuaresearch/change-list-17-04/</guid><description>&lt;p>Major Changes:&lt;/p>
+&lt;p>Webhook to call when the reports of a specific client are updated&lt;/p>
+&lt;h3 id="params">Params&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Name&lt;/th>
+ &lt;th>Location&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Required&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>client_id&lt;/td>
+ &lt;td>path&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>yes&lt;/td>
+ &lt;td>Client id to update reports for&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>X-Secret-Key&lt;/td>
+ &lt;td>header&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>yes&lt;/td>
+ &lt;td>none&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+
+
+ &lt;blockquote>
+ &lt;p>Response Examples&lt;/p></description></item><item><title>Change list (17-04)</title><link>http://localhost:1313/notes/virtuaresearch/change-list-17-04/</link><pubDate>Thu, 17 Apr 2025 14:36:51 +0530</pubDate><guid>http://localhost:1313/notes/virtuaresearch/change-list-17-04/</guid><description>&lt;p>Major Changes:&lt;/p>
 &lt;ol>
 &lt;li>&lt;strong>Implement metadata filtering for document retrieval:&lt;/strong> Only retrieve documents that are relevant to the time range.&lt;/li>
 &lt;li>&lt;strong>Implement Hybrid retrieval (semantic + keyword)&lt;/strong>: Perform retrieval using both semantic meaning and keywords and combine the retrieved results.&lt;/li>

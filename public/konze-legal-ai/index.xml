@@ -1,27 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Konze-Legal-Ais on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/konze-legal-ai/</link><description>Recent content in Konze-Legal-Ais on Tejesh Reckonsys Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025 Tejesh Kaliki</copyright><lastBuildDate>Tue, 27 May 2025 21:41:42 +0000</lastBuildDate><atom:link href="http://localhost:1313/notes/konze-legal-ai/index.xml" rel="self" type="application/rss+xml"/><item><title>Graph DB Processing</title><link>http://localhost:1313/notes/konze-legal-ai/graph-db-processing/</link><pubDate>Mon, 07 Apr 2025 09:25:08 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/graph-db-processing/</guid><description>&lt;h1 class="relative group">Processing Legal Document Links and Creating a Graph Database
-&lt;div id="processing-legal-document-links-and-creating-a-graph-database" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#processing-legal-document-links-and-creating-a-graph-database" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
-&lt;h2 class="relative group">Initial Data Loading (Run for each version)
-&lt;div id="initial-data-loading-run-for-each-version" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#initial-data-loading-run-for-each-version" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;h3 class="relative group">1. Load and Filter Source Data
-&lt;div id="1-load-and-filter-source-data" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#1-load-and-filter-source-data" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Konze-Legal-Ais on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/konze-legal-ai/</link><description>Recent content in Konze-Legal-Ais on Tejesh Reckonsys Notes</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 07 Apr 2025 09:25:08 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/konze-legal-ai/index.xml" rel="self" type="application/rss+xml"/><item><title>Graph DB Processing</title><link>http://localhost:1313/notes/konze-legal-ai/graph-db-processing/</link><pubDate>Mon, 07 Apr 2025 09:25:08 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/graph-db-processing/</guid><description>&lt;h1 id="processing-legal-document-links-and-creating-a-graph-database">Processing Legal Document Links and Creating a Graph Database&lt;/h1>
+&lt;h2 id="initial-data-loading-run-for-each-version">Initial Data Loading (Run for each version)&lt;/h2>
+&lt;h3 id="1-load-and-filter-source-data">1. Load and Filter Source Data&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Load acts and regulation file data
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> scraped_data &lt;span style="color:#66d9ef">AS&lt;/span> (
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">WITH&lt;/span> combined_sources &lt;span style="color:#66d9ef">AS&lt;/span> (
@@ -39,97 +18,41 @@ style="text-decoration-line: none !important;" href="#1-load-and-filter-source-d
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> valid_files &lt;span style="color:#66d9ef">AS&lt;/span> &lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> scraped_data &lt;span style="color:#66d9ef">WHERE&lt;/span> (&lt;span style="color:#66d9ef">contains&lt;/span>(url, &lt;span style="color:#e6db74">&amp;#39;/acts/&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">OR&lt;/span> &lt;span style="color:#66d9ef">contains&lt;/span>(url, &lt;span style="color:#e6db74">&amp;#39;/regs/&amp;#39;&lt;/span>)) &lt;span style="color:#66d9ef">AND&lt;/span> &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">contains&lt;/span>(file_name, &lt;span style="color:#e6db74">&amp;#39;/legislation/&amp;#39;&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- COPY valid_files TO &amp;#39;valid_links_07_02_2025.csv&amp;#39; WITH CSV HEADER;
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This creates a consolidated table from both acts and regulations files, then filters for valid URLs containing &amp;lsquo;/acts/&amp;rsquo; or &amp;lsquo;/regs/&amp;rsquo; but not &amp;lsquo;/legislation/&amp;rsquo;.&lt;/p></description></item><item><title>Project Structure</title><link>http://localhost:1313/notes/konze-legal-ai/project-structure/</link><pubDate>Fri, 04 Apr 2025 11:24:28 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/project-structure/</guid><description>&lt;h1 class="relative group">Project Structure Overview
-&lt;div id="project-structure-overview" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#project-structure-overview" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
-&lt;h2 class="relative group">Overview
-&lt;div id="overview" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#overview" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;h3 class="relative group">Core Components
-&lt;div id="core-components" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#core-components" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This creates a consolidated table from both acts and regulations files, then filters for valid URLs containing &amp;lsquo;/acts/&amp;rsquo; or &amp;lsquo;/regs/&amp;rsquo; but not &amp;lsquo;/legislation/&amp;rsquo;.&lt;/p></description></item><item><title>Project Structure</title><link>http://localhost:1313/notes/konze-legal-ai/project-structure/</link><pubDate>Fri, 04 Apr 2025 11:24:28 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/project-structure/</guid><description>&lt;h1 id="project-structure-overview">Project Structure Overview&lt;/h1>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;h3 id="core-components">Core Components&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>&lt;code>ragcore/&lt;/code>&lt;/strong> - Main source code&lt;/li>
 &lt;li>&lt;strong>&lt;code>logging_handler/&lt;/code>&lt;/strong> - &lt;a href="http://localhost:1313/notes/konze-legal-ai/logging-handler-service">Service for handling logs by pushing to MongoDB&lt;/a>&lt;/li>
 &lt;li>&lt;strong>&lt;code>streamlit_graph.py&lt;/code>&lt;/strong> - Current Streamlit entrypoint (&lt;a href="http://localhost:1313/notes/konze-legal-ai/graph-approach">graph approach&lt;/a>)&lt;/li>
 &lt;li>&lt;strong>&lt;code>streamlit_agentic.py&lt;/code>&lt;/strong> - Streamlit entrypoint for &lt;a href="http://localhost:1313/notes/konze-legal-ai/finite-state-machine-based-agentic-approach">agentic approach&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 class="relative group">Support Components
-&lt;div id="support-components" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#support-components" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;h3 id="support-components">Support Components&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>&lt;code>logs/&lt;/code>&lt;/strong> - Directory for storing logs&lt;/li>
 &lt;li>&lt;strong>&lt;code>notebooks/&lt;/code>&lt;/strong> - Python notebooks for Zed&lt;/li>
 &lt;li>&lt;strong>&lt;code>scripts/&lt;/code>&lt;/strong> - Helper scripts&lt;/li>
 &lt;/ul>
-&lt;h3 class="relative group">Configuration Files
-&lt;div id="configuration-files" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#configuration-files" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;h3 id="configuration-files">Configuration Files&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>compose.yml&lt;/code> - Main Docker Compose file&lt;/li>
 &lt;li>&lt;code>Dockerfile&lt;/code> - Main project Dockerfile&lt;/li>
 &lt;li>&lt;code>pyproject.toml&lt;/code> - Python project configuration&lt;/li>
 &lt;li>&lt;code>uv.lock&lt;/code> - Dependency lock file&lt;/li>
 &lt;/ul>
-&lt;h3 class="relative group">Data Files
-&lt;div id="data-files" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#data-files" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;h3 id="data-files">Data Files&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>bm25_encoder_weights.json&lt;/code> - Used by BM25 sparse embedding&lt;/li>
 &lt;li>&lt;code>file_hash.json&lt;/code> - &lt;a href="http://localhost:1313/notes/konze-legal-ai/filehash-json-structure">Stores file hashes for PDF duplicate identification&lt;/a>&lt;/li>
 &lt;li>&lt;code>log_processor_state.json&lt;/code> - Maintains logging service state&lt;/li>
 &lt;li>&lt;code>new_file_hash.json&lt;/code> / &lt;code>old_file_hash.json&lt;/code> - Snapshots of file hash states&lt;/li>
 &lt;/ul>
-&lt;h3 class="relative group">Legacy Files
-&lt;div id="legacy-files" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#legacy-files" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;h3 id="legacy-files">Legacy Files&lt;/h3>
 &lt;ul>
 &lt;li>&lt;code>streamlit.py&lt;/code> - Old Streamlit entrypoint&lt;/li>
 &lt;li>&lt;code>OLDREADME.md&lt;/code> - Previous documentation&lt;/li>
 &lt;/ul>
-&lt;h2 class="relative group">Main source code
-&lt;div id="main-source-code" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#main-source-code" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="main-source-code">Main source code&lt;/h2>
 &lt;pre tabindex="0">&lt;code>ragcore/
 ├── *agentic*
 ├── *ai_models*
@@ -154,43 +77,32 @@ style="text-decoration-line: none !important;" href="#main-source-code" aria-lab
 ├── upload_documents.py
 └── upload_to_pinecone.py
 &lt;/code>&lt;/pre></description></item><item><title>Graph Approach</title><link>http://localhost:1313/notes/konze-legal-ai/graph-approach/</link><pubDate>Fri, 04 Apr 2025 11:24:21 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/graph-approach/</guid><description>&lt;p>This is currently used approach.&lt;/p>
-&lt;h2 class="relative group">Overview
-&lt;div id="overview" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#overview" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="overview">Overview&lt;/h2>
 &lt;div class="mermaid-wrapper">
-&lt;div class="mermaid">flowchart TD
-A[User Query] --&amp;gt; B[Initial Hybrid Retrieval]
-B --&amp;gt; C[Retrieve Initial Chunks]
-C --&amp;gt; D[Get Connected Files via Graph DB]
-D --&amp;gt; E[Generate Targeted Queries using LLM]
-E --&amp;gt; F[Retrieve Additional Chunks]
-F --&amp;gt; D
-F --&amp;gt;|max iterations| I[Combine All Retrieved Chunks]
-I --&amp;gt; J[Generate Final Response]
-J --&amp;gt; K[Return Response to User]
-style A fill:#f9d5e5,stroke:#333,stroke-width:2px
-style J fill:#ade8f4,stroke:#333,stroke-width:2px
-style K fill:#f9d5e5,stroke:#333,stroke-width:2px&lt;/div>
+ &lt;div class="mermaid">flowchart TD
+ A[User Query] --&amp;gt; B[Initial Hybrid Retrieval]
+ B --&amp;gt; C[Retrieve Initial Chunks]
+ C --&amp;gt; D[Get Connected Files via Graph DB]
+ D --&amp;gt; E[Generate Targeted Queries using LLM]
+ E --&amp;gt; F[Retrieve Additional Chunks]
+ F --&amp;gt; D
+ 
+ F --&amp;gt;|max iterations| I[Combine All Retrieved Chunks]
+ I --&amp;gt; J[Generate Final Response]
+ J --&amp;gt; K[Return Response to User]
+ 
+ style A fill:#f9d5e5,stroke:#333,stroke-width:2px
+ style J fill:#ade8f4,stroke:#333,stroke-width:2px
+ style K fill:#f9d5e5,stroke:#333,stroke-width:2px&lt;/div>
 &lt;/div>
+
 &lt;p>&lt;strong>User Query&lt;/strong>: The process begins when a user submits a question or query to the system.&lt;/p></description></item><item><title>Logging Handler Service</title><link>http://localhost:1313/notes/konze-legal-ai/logging-handler-service/</link><pubDate>Fri, 04 Apr 2025 11:24:04 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/logging-handler-service/</guid><description/></item><item><title>Chunking Strategy</title><link>http://localhost:1313/notes/konze-legal-ai/chunking-strategy/</link><pubDate>Fri, 04 Apr 2025 11:23:46 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/chunking-strategy/</guid><description>&lt;p>We tried 2 chunking strategies:&lt;/p>
 &lt;ol>
 &lt;li>Semantic chunking&lt;/li>
 &lt;li>Token based chunking&lt;/li>
 &lt;/ol>
 &lt;p>Semantic chunking did not give expected results, so we are now using token based.&lt;/p>
-&lt;h2 class="relative group">Token based chunking strategy:
-&lt;div id="token-based-chunking-strategy" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#token-based-chunking-strategy" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="token-based-chunking-strategy">Token based chunking strategy:&lt;/h2>
 &lt;p>Token-based chunking is our current approach for processing legislation documents. Here&amp;rsquo;s how the process works:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -205,31 +117,21 @@ style="text-decoration-line: none !important;" href="#token-based-chunking-strat
 &lt;li>Command: &lt;code>python -m ragcore.markdown_chunking.create_markdown &amp;lt;pdf_data_base&amp;gt; &amp;lt;markdown_data_dir&amp;gt; --pattern &amp;quot;**/legislation/LIs/*.pdf&amp;quot;&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>For Acts and Regulations&lt;/strong>&lt;/p></description></item><item><title>Filehash JSON structure</title><link>http://localhost:1313/notes/konze-legal-ai/filehash-json-structure/</link><pubDate>Fri, 04 Apr 2025 10:18:35 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/filehash-json-structure/</guid><description>&lt;p>This file is used to store and identify duplicate files in dataset.&lt;/p>
-&lt;h2 class="relative group">Structure
-&lt;div id="structure" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#structure" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="structure">Structure&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;&amp;lt;sha256_file_hash&amp;gt;&amp;#34;&lt;/span>: [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;&amp;lt;file_1&amp;gt;.pdf&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;&amp;lt;file_2&amp;gt;.pdf&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#960050;background-color:#1e0010">...&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;&amp;lt;sha256_file_hash&amp;gt;&amp;#34;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#e6db74">&amp;#34;&amp;lt;file_1&amp;gt;.pdf&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#e6db74">&amp;#34;&amp;lt;file_2&amp;gt;.pdf&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#960050;background-color:#1e0010">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Keys&lt;/strong>: SHA256 hash generated for the pdf file
 &lt;strong>Values&lt;/strong>: list of file names that have this hash (meaning exactly same content)&lt;/p>
-&lt;p>&lt;em>Note:&lt;/em> Hash will be different even if only spacing changes in the pdf. &lt;strong>So it does not represent text.&lt;/strong>&lt;/p></description></item><item><title>Dataset Structure</title><link>http://localhost:1313/notes/konze-legal-ai/dataset-structure/</link><pubDate>Fri, 04 Apr 2025 10:17:12 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/dataset-structure/</guid><description>&lt;h2 class="relative group">Initially provided dataset
-&lt;div id="initially-provided-dataset" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#initially-provided-dataset" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;p>&lt;em>Note:&lt;/em> Hash will be different even if only spacing changes in the pdf. &lt;strong>So it does not represent text.&lt;/strong>&lt;/p>
+&lt;h3 id="file-names">File names&lt;/h3>
+&lt;p>File names contain the folder as well. &lt;a href="http://localhost:1313/notes/konze-legal-ai/dataset-structure">Check this for folder structure they provided&lt;/a>.
+Example filename in file_hash.json: &lt;code>&amp;quot;/acts_07_02_2025/legislation/C2004A01237.pdf&amp;quot;&lt;/code>
+(Includes leading &lt;code>/&lt;/code>)&lt;/p></description></item><item><title>Dataset Structure</title><link>http://localhost:1313/notes/konze-legal-ai/dataset-structure/</link><pubDate>Fri, 04 Apr 2025 10:17:12 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/dataset-structure/</guid><description>&lt;h2 id="initially-provided-dataset">Initially provided dataset&lt;/h2>
 &lt;pre tabindex="0">&lt;code>├── 2024
 │   ├── acts_07_12_2024_13_12_2024
 │   ├── acts_14_12_2024_16_12_2024
@@ -240,39 +142,28 @@ style="text-decoration-line: none !important;" href="#initially-provided-dataset
 │   ├── regulations_17_12_2024_19_12_2024
 │   └── regulations_20_12_2024_31_12_2024
 └── 2025
-   ├── acts_01_01_2025
-   └── regulations_01_01_2025
+    ├── acts_01_01_2025
+    └── regulations_01_01_2025
 &lt;/code>&lt;/pre>&lt;p>Each folder here represents a version.&lt;/p>
-&lt;p>For example, &lt;code>acts_07_12_2024_13_12_2024&lt;/code> is valid from 12th December 2024 to 13th December 2024. &lt;code>acts_01_01_2025&lt;/code> is valid from 1st January 2025 until the next version.&lt;/p></description></item><item><title>Knowledge Graph Implementation for Document Retrieval</title><link>http://localhost:1313/notes/konze-legal-ai/knowledge-graph-implementation-for-document-retrieval/</link><pubDate>Mon, 31 Mar 2025 10:47:57 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/knowledge-graph-implementation-for-document-retrieval/</guid><description>&lt;h2 class="relative group">Overview
-&lt;div id="overview" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#overview" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;p>For example, &lt;code>acts_07_12_2024_13_12_2024&lt;/code> is valid from 12th December 2024 to 13th December 2024. &lt;code>acts_01_01_2025&lt;/code> is valid from 1st January 2025 until the next version.&lt;/p>
+&lt;p>&lt;strong>Note&lt;/strong>: Each version has acts and regulations.&lt;/p></description></item><item><title>Knowledge Graph Implementation for Document Retrieval</title><link>http://localhost:1313/notes/konze-legal-ai/knowledge-graph-implementation-for-document-retrieval/</link><pubDate>Mon, 31 Mar 2025 10:47:57 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/knowledge-graph-implementation-for-document-retrieval/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>Our system implements a graph-based approach to enhance document retrieval by leveraging the semantic connections between documents. Here&amp;rsquo;s how it works:&lt;/p>
-&lt;h2 class="relative group">Graph Construction Phase
-&lt;div id="graph-construction-phase" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#graph-construction-phase" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="graph-construction-phase">Graph Construction Phase&lt;/h2>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>Data Processing&lt;/strong>: We analyzed PDF files and scraped URL data to identify interlinks between documents.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Metadata Extraction&lt;/strong>: For each interlink, we captured rich metadata including:&lt;/p></description></item><item><title>Unnecessary Files</title><link>http://localhost:1313/notes/konze-legal-ai/unnecessary-files/</link><pubDate>Tue, 25 Mar 2025 14:16:01 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/unnecessary-files/</guid><description>&lt;h2 class="relative group">Acts
-&lt;div id="acts" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#acts" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;p>&lt;strong>Metadata Extraction&lt;/strong>: For each interlink, we captured rich metadata including:&lt;/p>
+&lt;ul>
+&lt;li>Anchor text (the visible, clickable text)&lt;/li>
+&lt;li>Page number (source location)&lt;/li>
+&lt;li>Link hashtags (for section references)&lt;/li>
+&lt;li>Other relevant connection data&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Neo4j Storage&lt;/strong>: All connections and metadata were stored in Neo4j graph database, creating a navigable knowledge structure representing document relationships.&lt;/p></description></item><item><title>Unnecessary Files</title><link>http://localhost:1313/notes/konze-legal-ai/unnecessary-files/</link><pubDate>Tue, 25 Mar 2025 14:16:01 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/unnecessary-files/</guid><description>&lt;h2 id="acts">Acts&lt;/h2>
 &lt;p>&lt;strong>Total files&lt;/strong> - 1858 (+1 invalid file in given folder, not in excel)&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Amendments links&lt;/strong> - 121&lt;/li>
@@ -280,75 +171,60 @@ style="text-decoration-line: none !important;" href="#acts" aria-label="Anchor">
 &lt;li>&lt;strong>Updates links&lt;/strong> - 731&lt;/li>
 &lt;li>&lt;strong>Remaining - acts links&lt;/strong> - 1002&lt;/li>
 &lt;/ul>
-&lt;h2 class="relative group">Regulations
-&lt;div id="regulations" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#regulations" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;p>&lt;strong>Total files&lt;/strong> - 1407 (+81 login files in given folder, not in excel)&lt;/p></description></item><item><title>Updated Schema</title><link>http://localhost:1313/notes/konze-legal-ai/updated-schema/</link><pubDate>Tue, 25 Mar 2025 11:02:17 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/updated-schema/</guid><description>&lt;h1 class="relative group">Vector DB
-&lt;div id="vector-db" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#vector-db" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
+&lt;h2 id="regulations">Regulations&lt;/h2>
+&lt;p>&lt;strong>Total files&lt;/strong> - 1407 (+81 login files in given folder, not in excel)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Amendments links&lt;/strong> - 39&lt;/li>
+&lt;li>&lt;strong>Terms and conditions, contact us, FAQs &amp;amp; Help&lt;/strong> - 4&lt;/li>
+&lt;li>&lt;strong>Remaining - regulations links&lt;/strong> - 1364&lt;/li>
+&lt;/ul></description></item><item><title>Updated Schema</title><link>http://localhost:1313/notes/konze-legal-ai/updated-schema/</link><pubDate>Tue, 25 Mar 2025 11:02:17 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/updated-schema/</guid><description>&lt;h1 id="vector-db">Vector DB&lt;/h1>
 &lt;p>&lt;strong>Metadata:&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;names&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;abc.pdf&amp;#34;&lt;/span>],
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;start_date&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">8780804&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;end_date&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">9707947&lt;/span>, &lt;span style="color:#75715e">// Dates in ordinal format
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">&amp;#34;start_page&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;end_page&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;summary&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Chunk summary (Optional)&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;title&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Page title (Optional)&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;kind&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;regulations|acts|li&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;hash&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;7f533a447ac499e2998bdd7a589b626afd7171cde5dc48217c9a8e8c40cf09a6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;names&amp;#34;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;abc.pdf&amp;#34;&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;start_date&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">8780804&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;end_date&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">9707947&lt;/span>, &lt;span style="color:#75715e">// Dates in ordinal format
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>	&lt;span style="color:#f92672">&amp;#34;start_page&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;end_page&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;summary&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Chunk summary (Optional)&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;title&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Page title (Optional)&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;kind&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;regulations|acts|li&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;hash&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;7f533a447ac499e2998bdd7a589b626afd7171cde5dc48217c9a8e8c40cf09a6&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;h1 class="relative group">Graph DB
-&lt;div id="graph-db" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#graph-db" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
-&lt;h2 class="relative group">Node Structure
-&lt;div id="node-structure" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#node-structure" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;p>The node structure appears to be well-defined with clear properties:&lt;/p></description></item><item><title>Scraping Requirements</title><link>http://localhost:1313/notes/konze-legal-ai/scraping-requirements/</link><pubDate>Fri, 21 Mar 2025 14:54:45 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/scraping-requirements/</guid><description>&lt;p>&lt;strong>1. In hierarchical structure, maintaining table of content structure from legend.com. Folder structure should follow legend URL.&lt;/strong>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="graph-db">Graph DB&lt;/h1>
+&lt;h2 id="node-structure">Node Structure&lt;/h2>
+&lt;p>The node structure appears to be well-defined with clear properties:&lt;/p>
+&lt;pre tabindex="0">&lt;code>Node {
+ file_name: String,
+ url: String,
+ title: String,
+ kind: String // enum: [&amp;#34;acts&amp;#34;, &amp;#34;regulations&amp;#34;, &amp;#34;LI&amp;#34;, &amp;#34;other&amp;#34;]
+}
+&lt;/code>&lt;/pre>&lt;h2 id="relationship-structure">Relationship Structure&lt;/h2>
+&lt;p>The &amp;ldquo;references&amp;rdquo; relationship is defined with directional flow and properties:&lt;/p>
+&lt;pre tabindex="0">&lt;code>(Original:Node)-[r:REFERENCES {
+ pages: Json.stringified [Integer],
+ details: Json.stringified [Map]
+}]-&amp;gt;(Referenced:Node)
+&lt;/code>&lt;/pre>&lt;p>Where &lt;code>details&lt;/code> is an array of maps containing:&lt;/p></description></item><item><title>Scraping Requirements</title><link>http://localhost:1313/notes/konze-legal-ai/scraping-requirements/</link><pubDate>Fri, 21 Mar 2025 14:54:45 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/scraping-requirements/</guid><description>&lt;p>&lt;strong>1. In hierarchical structure, maintaining table of content structure from legend.com. Folder structure should follow legend URL.&lt;/strong>
 Example:
-&lt;figure>
-&lt;img class="my-0 rounded-md" loading="lazy" src="http://localhost:1313/notes/konze-legal-ai/pasted-image-20250321142956.png" alt="Pasted image 20250321142956.png" />
-&lt;/figure>
+&lt;img src="http://localhost:1313/notes/konze-legal-ai/pasted-image-20250321142956.png" alt="Pasted image 20250321142956.png">
 This page should be in following folder structure: &lt;code>migration&lt;/code>,&lt;code>2021-2024&lt;/code>, &lt;code>2025&lt;/code>, &lt;code>07-03-2025&lt;/code> &amp;gt; &lt;code>acts&lt;/code> &amp;gt; &lt;code>Pages&lt;/code> &amp;gt; &lt;code>document00000&lt;/code> &amp;gt; &lt;code>level%20100000.html&lt;/code>.&lt;/p>
 &lt;p>&lt;strong>2. For each page, save as html only containing &lt;code>title&lt;/code>, &lt;code>breadcrumps&lt;/code> and &lt;code>page_content&lt;/code>&lt;/strong>. (Do not include other elements such as table of contents and navigation buttons)
 For the above example. html should contain head with the &lt;code>title&lt;/code>. In the body, Only include the div containing &lt;code>breadcrumps&lt;/code>, and the main &lt;code>page_content&lt;/code> div.&lt;/p></description></item><item><title>Finite State Machine Based Agentic approach</title><link>http://localhost:1313/notes/konze-legal-ai/finite-state-machine-based-agentic-approach/</link><pubDate>Fri, 07 Mar 2025 18:13:04 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/finite-state-machine-based-agentic-approach/</guid><description>&lt;div class="mermaid-wrapper">
-&lt;div class="mermaid">stateDiagram-v2
-[*] --&amp;gt; RetrievalPlanNode
-RetrievalPlanNode --&amp;gt; InformationAnalysisNode
-InformationAnalysisNode --&amp;gt; ResponseGenerationNode: Enough data to answer user question
-InformationAnalysisNode --&amp;gt; InformationRetrievalNode: Require information
-InformationRetrievalNode --&amp;gt; InformationAnalysisNode
-ResponseGenerationNode --&amp;gt; [*]: Generate final response&lt;/div>
+ &lt;div class="mermaid">stateDiagram-v2
+ [*] --&amp;gt; RetrievalPlanNode
+ 
+ RetrievalPlanNode --&amp;gt; InformationAnalysisNode
+ 
+ InformationAnalysisNode --&amp;gt; ResponseGenerationNode: Enough data to answer user question
+ InformationAnalysisNode --&amp;gt; InformationRetrievalNode: Require information
+ 
+ InformationRetrievalNode --&amp;gt; InformationAnalysisNode
+ 
+ ResponseGenerationNode --&amp;gt; [*]: Generate final response&lt;/div>
 &lt;/div>
-&lt;h2 class="relative group">InformationAnalysisNode
-&lt;div id="informationanalysisnode" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#informationanalysisnode" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+
+&lt;h2 id="informationanalysisnode">InformationAnalysisNode&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@dataclass&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">InformationAnalysisNode&lt;/span>(BaseNode[State]):
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">async&lt;/span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">run&lt;/span>(self, ctx: GraphRunContext[State]) &lt;span style="color:#f92672">-&amp;gt;&lt;/span> InformationRetrievalNode &lt;span style="color:#f92672">|&lt;/span> ResponseGenerationNode:
@@ -357,24 +233,33 @@ style="text-decoration-line: none !important;" href="#informationanalysisnode" a
 &lt;li>Serves as the entry point and decision-maker for query processing&lt;/li>
 &lt;li>Analyzes the complexity of the user query and determines the next action&lt;/li>
 &lt;/ul>
-&lt;p>&lt;strong>Functionality&lt;/strong>:&lt;/p></description></item><item><title>Conversation Chain</title><link>http://localhost:1313/notes/konze-legal-ai/conversation-chain/</link><pubDate>Thu, 06 Mar 2025 11:57:26 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/conversation-chain/</guid><description>&lt;p>This document explains how conversation works in a Retrieval-Augmented Generation (RAG) model, detailing the process from user input to response generation.&lt;/p>
-&lt;h2 class="relative group">Overall Process
-&lt;div id="overall-process" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#overall-process" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;p>RAG models enhance Large Language Models (LLMs) by retrieving relevant information from a knowledge base before generating responses. This allows the model to access specific information that might not be in its training data.&lt;/p></description></item><item><title>Konze Legal AI Approaches</title><link>http://localhost:1313/notes/konze-legal-ai/konze-legal-ai-approaches/</link><pubDate>Wed, 05 Mar 2025 14:29:27 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/konze-legal-ai-approaches/</guid><description>&lt;p>For our Retrieval Augmented Generation (RAG) implementation, we explored several different approaches to chunking and retrieval.&lt;/p>
-&lt;h3 class="relative group">Chunk Naming Convention
-&lt;div id="chunk-naming-convention" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#chunk-naming-convention" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;p>&lt;strong>Functionality&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Uses the &lt;code>information_analysis_agent&lt;/code> to evaluate the query&lt;/li>
+&lt;li>If the query is simple (like &amp;ldquo;Hello&amp;rdquo;), routes directly to &lt;code>ResponseGenerationNode&lt;/code>&lt;/li>
+&lt;li>For complex queries, routes to &lt;code>InformationRetrievalNode&lt;/code> with specific retrieval parameters&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Agent Behavior&lt;/strong>:&lt;/p></description></item><item><title>Conversation Chain</title><link>http://localhost:1313/notes/konze-legal-ai/conversation-chain/</link><pubDate>Thu, 06 Mar 2025 11:57:26 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/conversation-chain/</guid><description>&lt;p>This document explains how conversation works in a Retrieval-Augmented Generation (RAG) model, detailing the process from user input to response generation.&lt;/p>
+&lt;h2 id="overall-process">Overall Process&lt;/h2>
+&lt;p>RAG models enhance Large Language Models (LLMs) by retrieving relevant information from a knowledge base before generating responses. This allows the model to access specific information that might not be in its training data.&lt;/p>
+&lt;h3 id="conversation-flow">Conversation Flow&lt;/h3>
+&lt;div class="mermaid-wrapper">
+ &lt;div class="mermaid">%%{init: {&amp;#39;flowchart&amp;#39;: {&amp;#39;nodeSpacing&amp;#39;: 10, &amp;#39;rankSpacing&amp;#39;: 15, &amp;#39;htmlLabels&amp;#39;: true, &amp;#39;curve&amp;#39;: &amp;#39;basis&amp;#39;}, &amp;#39;themeVariables&amp;#39;: {&amp;#39;nodeBorder&amp;#39;: &amp;#39;0.5px&amp;#39;, &amp;#39;nodeTextPadding&amp;#39;: 2}}}%%
+flowchart TD
+ A[User Input] --&amp;gt; B[Query Rephrasing]
+ B --&amp;gt; C[Retrieval Process]
+ C --&amp;gt; D[Reranking]
+ D --&amp;gt; E[Context Expansion]
+ E --&amp;gt; F[Draft Response Generation]
+ F --&amp;gt; G[Final Response Generation]
+ G --&amp;gt; H[Conversation Summary]
+ H --&amp;gt; A&lt;/div>
+&lt;/div>
+
+&lt;h2 id="detailed-steps">Detailed Steps&lt;/h2>
+&lt;h3 id="1-user-input-processing">1. User Input Processing&lt;/h3>
+&lt;p>The system receives the user&amp;rsquo;s message, which serves as the initial query.&lt;/p></description></item><item><title>Konze Legal AI Approaches</title><link>http://localhost:1313/notes/konze-legal-ai/konze-legal-ai-approaches/</link><pubDate>Wed, 05 Mar 2025 14:29:27 +0530</pubDate><guid>http://localhost:1313/notes/konze-legal-ai/konze-legal-ai-approaches/</guid><description>&lt;p>For our Retrieval Augmented Generation (RAG) implementation, we explored several different approaches to chunking and retrieval.&lt;/p>
+&lt;h3 id="chunk-naming-convention">Chunk Naming Convention&lt;/h3>
 &lt;p>All approaches used the same naming convention for chunks. Each chunk was uniquely identified using a combination of:&lt;/p>
 &lt;ul>
 &lt;li>The hash of the original source file&lt;/li>
@@ -386,12 +271,5 @@ style="text-decoration-line: none !important;" href="#chunk-naming-convention" a
 &lt;li>Unique identification of each chunk&lt;/li>
 &lt;li>Ability to reconstruct document order when needed&lt;/li>
 &lt;/ol>
-&lt;h3 class="relative group">Approach 1 - Semantic Chunking (with only dense retrieval)
-&lt;div id="approach-1---semantic-chunking-with-only-dense-retrieval" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#approach-1---semantic-chunking-with-only-dense-retrieval" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h3>
+&lt;h3 id="approach-1---semantic-chunking-with-only-dense-retrieval">Approach 1 - Semantic Chunking (with only dense retrieval)&lt;/h3>
 &lt;p>Our initial approach utilized semantic chunking to.&lt;/p></description></item></channel></rss>
