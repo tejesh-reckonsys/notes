@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personals on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/personal/</link><description>Recent content in Personals on Tejesh Reckonsys Notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2025 Tejesh Kaliki</copyright><lastBuildDate>Tue, 04 Feb 2025 17:43:25 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>Books</title><link>http://localhost:1313/notes/personal/books/</link><pubDate>Tue, 04 Feb 2025 17:43:25 +0530</pubDate><guid>http://localhost:1313/notes/personal/books/</guid><description>&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personals on Tejesh Reckonsys Notes</title><link>http://localhost:1313/notes/personal/</link><description>Recent content in Personals on Tejesh Reckonsys Notes</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 04 Feb 2025 17:43:25 +0530</lastBuildDate><atom:link href="http://localhost:1313/notes/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>Books</title><link>http://localhost:1313/notes/personal/books/</link><pubDate>Tue, 04 Feb 2025 17:43:25 +0530</pubDate><guid>http://localhost:1313/notes/personal/books/</guid><description>&lt;ol>
 &lt;li>&lt;strong>The Pragmatic Programmer: 20th anniversary edition&lt;/strong> - General tips on software development&lt;/li>
 &lt;li>&lt;strong>Head First: Design Patterns&lt;/strong> - Introduction to some basic design patterns and how they can be used. (Examples are in java, but principles work everywhere)&lt;/li>
 &lt;li>&lt;strong>Effective Python&lt;/strong> - Best book on intermediate/expert level python best practices&lt;/li>
@@ -7,12 +7,5 @@
 &lt;li>&lt;strong>Monolith to Microservices&lt;/strong> - Continuation of above book, short info on how to migrate monolith to microservices.&lt;/li>
 &lt;li>&lt;strong>API Security in Action&lt;/strong> - Basics of API security. (examples are in Java)&lt;/li>
 &lt;/ol>
-&lt;h2 class="relative group">Programming related Novels
-&lt;div id="programming-related-novels" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#programming-related-novels" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
+&lt;h2 id="programming-related-novels">Programming related Novels&lt;/h2>
 &lt;p>If you are interested in reading novels, these are one of my favorite&lt;/p></description></item></channel></rss>
